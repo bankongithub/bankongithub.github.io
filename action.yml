@@ -1,0 +1,8 @@
+name: 'Bank'
+description: 'Processing transaction'
+outputs:
+  result:
+    description: 'The result of the transaction.'
+runs:
+  using: 'node16'
+  main: './core/app.js'

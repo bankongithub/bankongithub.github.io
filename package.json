@@ -1,0 +1,21 @@
+{
+  "name": "bank-on-github",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Bank on GitHub",
+  "main": "./core/app.js",
+  "author": "JiJi <i@mmdjiji.com>",
+  "license": "GPL v3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmdjiji/sandbox"
+  },
+  "dependencies": {
+    "@actions/core": "^1.8.1",
+    "@actions/github": "^5.0.2",
+    "ethers": "^5.6.5",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.2.4",
+    "tunnel": "^0.0.6"
+  }
+}

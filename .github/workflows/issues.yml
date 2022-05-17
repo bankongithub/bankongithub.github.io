@@ -1,0 +1,80 @@
+name: Issues
+
+on:
+  issues:
+    types: opened
+
+jobs:
+  pre-processing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create comment
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello ${{ github.event.issue.user.login }}. Your transaction #${{ github.event.issue.number}} has been successfully submitted and we are processing it.
+      - name: Close issue
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'close-issue'
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lock issue
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'lock-issue'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+  transaction:
+    needs: pre-processing
+    runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.transaction.outputs.result }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      - name: Run npm install
+        run: |
+          npm install
+      - name: Do transaction
+        id: transaction
+        uses: ./
+      - name: Add labels
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'add-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          labels: ${{ steps.transaction.outputs.result }}
+      - name: Commit files
+        if: ${{ steps.transaction.outputs.result == 'accept' }}
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Finish transaction #${{ github.event.issue.number}}"
+      - name: Push changes
+        if: ${{ steps.transaction.outputs.result == 'accept' }}
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+      - name: ci
+        if: ${{ steps.transaction.outputs.result == 'accept' }}
+        run: |
+          cd ./web/
+          npm install
+          npm run build
+          cp ./dist/index.html ./dist/404.html
+      - name: Deploy to GitHub Pages
+        if: ${{ steps.transaction.outputs.result == 'accept' }}
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: ./web/dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

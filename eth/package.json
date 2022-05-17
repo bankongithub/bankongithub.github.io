@@ -1,0 +1,14 @@
+{
+  "name": "eth",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "author": "",
+  "license": "GPL v3.0",
+  "dependencies": {
+    "ethers": "^5.6.5"
+  }
+}
