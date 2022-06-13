@@ -3,7 +3,7 @@
   <h1>Welcome to the Bank on GitHub</h1>
   <Toast />
   <div>
-    <InputText type="text" v-model="address" placeholder="Public address" style="width: 25rem; margin: 0 1rem 1rem 0rem" />&nbsp;
+    <InputText type="text" v-model="address" placeholder="Public address" style="width: 20rem; margin: 0 1rem 1rem 0rem" />&nbsp;
     <Button label="Search" icon="pi pi-search" style="margin: 0 1rem 1rem 0rem" @click="search"></Button>
   </div>
 

@@ -3,13 +3,13 @@
   <Toast />
   <div v-show="!clicked">
     <div>
-      <InputText type="text" v-model="recvAddr" placeholder="Recipient's public address" style="width: 25rem; margin: 0 1rem 1rem 0rem" />
+      <InputText type="text" v-model="recvAddr" placeholder="Recipient's public address" style="width: 20rem; margin: 0 1rem 1rem 0rem" />
     </div>
     <div>
-      <InputNumber v-model="amount" mode="decimal" placeholder="Amount of the transfer" :min="0" style="width: 25rem; margin: 0 1rem 1rem 0rem" />
+      <InputNumber v-model="amount" mode="decimal" placeholder="Amount of the transfer" :min="0" style="width: 20rem; margin: 0 1rem 1rem 0rem" />
     </div>
     <div>
-      <InputText type="text" v-model="privateKey" placeholder="Your private key / mnemonic words" style="width: 25rem; margin: 0 1rem 1rem 0rem" />
+      <InputText type="text" v-model="privateKey" placeholder="Your private key / mnemonic words" style="width: 20rem; margin: 0 1rem 1rem 0rem" />
     </div>
     <Button label="Transfer" icon="pi pi-send" @click="transfer"></Button>
   </div>

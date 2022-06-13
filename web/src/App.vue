@@ -54,5 +54,7 @@ body {
 .ps {
   height: 100vh;
 }
-
+.p-tabmenu-nav .p-menuitem-text {
+  font-size: 0.8em;
+}
 </style>
