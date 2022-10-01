@@ -21,7 +21,7 @@
       Can I create my private bank with this project?
     </template>
     <template #content>
-      <p>Of course! You can fork the project and deploy it privately. The only thing you need to do is following the LICENSE. Don't forget to star this repository and follow the <a href="https://github.com/mmdjiji">author</a>! One thing should be noted that this project is not on Ethereum blockchain or any other blockchain but just used the wallet algorithm of ETC.</p>
+      <p>Of course! You can fork the project and deploy it privately. The only thing you need to do is following the LICENSE. Don't forget to star this repository and follow the <a href="https://github.com/mmdjiji">author</a>! One thing should be noted that this project is not on Ethereum blockchain or any other blockchain but just used the wallet algorithm of ETH.</p>
     </template>
   </Card>
 </template>
