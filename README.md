@@ -23,7 +23,7 @@ Bank on GitHub is a bank system based on GitHub (especially GitHub Actions). We 
 
 ## Can I create my private bank with this project?
 
-Of course! You can fork the project and deploy it privately. The only thing you need to do is following the [LICENSE](https://choosealicense.com/licenses/gpl-3.0/). Don't forget to star this repository and follow the author! One thing should be noted that this project is not on Ethereum blockchain or any other blockchain but just used the wallet algorithm of ETC.
+Of course! You can fork the project and deploy it privately. The only thing you need to do is following the [LICENSE](https://choosealicense.com/licenses/gpl-3.0/). Don't forget to star this repository and follow the author! One thing should be noted that this project is not on Ethereum blockchain or any other blockchain but just used the wallet algorithm of ETH.
 
 ## API
 
